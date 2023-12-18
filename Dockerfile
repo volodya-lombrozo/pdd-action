@@ -1,10 +1,10 @@
-FROM alpine:3.13
+FROM alpine:3.19
 
 LABEL "repository"="https://github.com/g4s8/pdd-action"
 LABEL "maintainer"="Kirill Che."
 
 # install pdd
-RUN apk add --update --no-cache ruby xz-libs libmagic && \
+RUN apk add --update --no-cache ruby-dev xz-libs libmagic && \
   mkdir /tmp/apk.cache && \
   apk add -U -t .pdd-deps --cache-dir=/tmp/apk.cache \
     "build-base" "ruby-dev" \
